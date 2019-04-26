@@ -4,17 +4,19 @@
 
     <h1>Add a Blog Entry</h1>
     <form method="POST">
-        <label>
+        <label for='title'>
             Title for your new blog:
             <br>
-            <input type='text' name='title'>
+            <input type='text' name='title' value='{{blog_title}}'>
+            <p class="error">{{titleError}}</p>
         </label>
         <br>
         <br>
-        <label>
+        <label for='body'> 
             Your new blog:
             <br>
-            <textarea name='body'></textarea>
+            <textarea name='body' rows='6' cols='30' value='{{blog_body}}'>{{blog_body}}</textarea>
+            <p class="error">{{bodyError}}</p>
         </label>
         <br>
         <br>

@@ -10,7 +10,7 @@
     <ul class='one'>
         {% for blog in blogs %}
         <li>
-            <h2>{{blog.title}}</h2>
+            <a href="/blogpage?id={{blog.id}}"><h2>{{blog.title}}</h2></a>
             <p><em>{{blog.body}}</em></p>
         </li>   
         <hr />
