@@ -21,8 +21,10 @@ class Blog(db.Model):
 def index():
 
     blog_id = request.args.get('id')
+    
     if blog_id:
-        return redirect('/blogpage')
+        blog= Blog.query.filter_by(id=blog_id).first()
+        return render_template('blog_page.html', blog=blog)
     else:
         blogs = Blog.query.all()
         return render_template('main_page.html',title='Build a Blog', blogs=blogs)
@@ -50,19 +52,14 @@ def newpost():
             new_blog = Blog(blog_title, blog_body)
             db.session.add(new_blog)
             db.session.commit()
-            return redirect('/blog')
+            blog= Blog.query.filter_by(id=new_blog.id).first()
+            return render_template('blog_page.html',blog=blog )
         else:
             return render_template('new_post.html', title='New Blog', blog_title=blog_title,
             titleError=titleError, blog_body=blog_body, bodyError=bodyError)
     else:
         return render_template('new_post.html',title='New Blog')
 
-@app.route('/blogpage')
-def display():
-    
-    blog_id = int(request.args.get('id'))
-    blog= Blog.query.filter_by(id=blog_id).first()
-    return render_template('blog_page.html', blog=blog)
 
 if __name__ == '__main__':
     app.run()
