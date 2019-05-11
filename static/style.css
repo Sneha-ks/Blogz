@@ -7,7 +7,7 @@ h2 {
 }
 
 .one{
-    list-style: none;
+    list-style-type: none;
 }
 
 .error{
@@ -16,4 +16,6 @@ h2 {
 
 body {
     background-color: darksalmon;
+    font-size: 12px;
 }
+
