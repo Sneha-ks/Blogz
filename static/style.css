@@ -7,7 +7,7 @@ h2 {
 }
 
 .one{
-    list-style-type: none;
+    list-style: none;
 }
 
 .error{
@@ -15,7 +15,10 @@ h2 {
 }
 
 body {
+
+    margin: 2%;
+    padding: 0.5%;
     background-color: darksalmon;
-    font-size: 12px;
+    font-size: 18px;
 }
 

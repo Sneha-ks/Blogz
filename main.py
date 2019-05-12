@@ -58,7 +58,7 @@ def login():
             return redirect('/newpost')
         else:
             passwordError = "Incorrect Password"
-            return render_template('login.html', passwordError=passwordError)
+            return render_template('login.html', username=username, passwordError=passwordError)
 
     return render_template('login.html', title='Login')
 
@@ -143,7 +143,7 @@ def blog():
         blogs = Blog.query.filter_by(owner_id=user_id)
         return render_template('user.html',title='Blog Posts', blogs=blogs)
     
-    return render_template('main_page.html', blogs=blogs)
+    return render_template('main_page.html', title='All posts', blogs=blogs)
 
 
 @app.route('/newpost', methods=['POST','GET'])
